@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -333,6 +334,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\ProductManager\Index.cshtml" />
+    <Content Include="Views\ProductManager\Create.cshtml" />
+    <Content Include="Views\ProductManager\Edit.cshtml" />
+    <Content Include="Views\ProductManager\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -347,6 +352,24 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyBiz.Core\MyBiz.Core.csproj">
+      <Project>{11358c63-621c-48de-a76f-426d097b6908}</Project>
+      <Name>MyBiz.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyBiz.DataAccess.InMemory\MyBiz.DataAccess.InMemory.csproj">
+      <Project>{027604c2-9fd2-4ece-9a40-d4de358905fa}</Project>
+      <Name>MyBiz.DataAccess.InMemory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyBiz.DataAccess.SQL\MyBiz.DataAccess.SQL.csproj">
+      <Project>{1e9441da-2925-4ff9-ae06-c5a3e50087ca}</Project>
+      <Name>MyBiz.DataAccess.SQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyBiz.Services\MyBiz.Services.csproj">
+      <Project>{ccdc4d37-1d74-4e7f-a17a-9e804b321ec7}</Project>
+      <Name>MyBiz.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

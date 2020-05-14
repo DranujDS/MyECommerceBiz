@@ -45,19 +45,21 @@ namespace MyBiz.DataAccess.InMemory
       }
       else
       {
-        throw new Exception("Product not found!")
+        throw new Exception( "Product not found!" );
       }
     }
 
     public Product Find(string Id)
     {
       Product product = products.Find( p => p.Id == Id );
+
+      if( product != null )
       {
         return product;
       } 
       else
       {
-        throw new Exception( "Product not found!" )
+        throw new Exception( "Product not found!" );
       }
     }
 
@@ -69,12 +71,14 @@ namespace MyBiz.DataAccess.InMemory
     public void Delete(string Id)
     {
       Product productToDelete = products.Find( p => p.Id == Id );
+
+      if( productToDelete != null )
       {
         products.Remove( productToDelete );
       } 
       else
       {
-        throw new Exception( "Product not found!" )
+        throw new Exception( "Product not found!" );
       }
     }
   }
