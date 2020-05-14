@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyBiz.Core.Models;
+using MyBiz.Core.ViewModels;
 using MyBiz.DataAccess.InMemory;
 
 namespace MyBiz.WebUI.Controllers
@@ -11,10 +12,12 @@ namespace MyBiz.WebUI.Controllers
   public class ProductManagerController : Controller
   {
     ProductRepository context;
+    ProductCategoryRepository productCategories;
       
     public ProductManagerController()
     {
       context = new ProductRepository();
+      productCategories = new ProductCategoryRepository();
     }
     // GET: ProductManager
     public ActionResult Index()
@@ -25,9 +28,11 @@ namespace MyBiz.WebUI.Controllers
 
     public ActionResult Create()
     {
-      Product product = new Product();
+      ProductManagerViewModel productManagerViewModel = new ProductManagerViewModel();
+      productManagerViewModel.Product = new Product();
+      productManagerViewModel.ProductCategories = productCategories.Collection();
 
-      return View( product );
+      return View( productManagerViewModel );
     }
 
     [HttpPost]
@@ -55,7 +60,10 @@ namespace MyBiz.WebUI.Controllers
       }
       else
       {
-        return View( product );
+        ProductManagerViewModel productManagerViewModel = new ProductManagerViewModel();
+        productManagerViewModel.Product = product;
+        productManagerViewModel.ProductCategories = productCategories.Collection();
+        return View( productManagerViewModel );
       }
     }
 
