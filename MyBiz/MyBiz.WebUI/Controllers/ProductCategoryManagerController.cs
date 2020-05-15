@@ -11,36 +11,36 @@ namespace MyBiz.WebUI.Controllers
 {
   public class ProductCategoryManagerController : Controller
   {
-    IRepository<ProductCatergory> context;
+    IRepository<ProductCategory> context;
 
-    public ProductCategoryManagerController( IRepository<ProductCatergory> context )
+    public ProductCategoryManagerController( IRepository<ProductCategory> context )
     {
       this.context = context;
     }
     // GET: ProductCategoryManager
     public ActionResult Index()
     {
-      List<ProductCatergory> productCategories = context.Collection().ToList();
+      List<ProductCategory> productCategories = context.Collection().ToList();
       return View( productCategories );
     }
 
     public ActionResult Create()
     {
-      ProductCatergory productCategory = new ProductCatergory();
+      ProductCategory productCategory = new ProductCategory();
 
       return View( productCategory );
     }
 
     [HttpPost]
-    public ActionResult Create( ProductCatergory productCatergory )
+    public ActionResult Create( ProductCategory productCategory )
     {
       if( !ModelState.IsValid )
       {
-        return View( productCatergory );
+        return View( productCategory );
       } 
       else
       {
-        context.Insert( productCatergory );
+        context.Insert( productCategory );
         context.Commit();
 
         return RedirectToAction( "Index" );
@@ -60,21 +60,21 @@ namespace MyBiz.WebUI.Controllers
     }
 
     [HttpPost]
-    public ActionResult Edit( ProductCatergory productCatergory, string Id )
+    public ActionResult Edit( ProductCategory productCategory, string Id )
     {
-      ProductCatergory productCatergoryToEdit = context.Find( Id );
-      if( productCatergoryToEdit == null )
+      ProductCategory productCategoryToEdit = context.Find( Id );
+      if( productCategoryToEdit == null )
       {
         return HttpNotFound();
       } else
       {
         if( !ModelState.IsValid )
         {
-          return View( productCatergoryToEdit );
+          return View( productCategoryToEdit );
         } 
         else
         {
-          productCatergoryToEdit.Category = productCatergory.Category;
+          productCategoryToEdit.Category = productCategory.Category;
 
           context.Commit();
 
@@ -85,13 +85,13 @@ namespace MyBiz.WebUI.Controllers
 
     public ActionResult Delete( string Id )
     {
-      ProductCatergory productCatergoryToDelete = context.Find( Id );
-      if( productCatergoryToDelete == null )
+      ProductCategory productCategoryToDelete = context.Find( Id );
+      if( productCategoryToDelete == null )
       {
         return HttpNotFound();
       } else
       {
-        return View( productCatergoryToDelete );
+        return View( productCategoryToDelete );
       }
     }
 
@@ -99,8 +99,8 @@ namespace MyBiz.WebUI.Controllers
     [ActionName( "Delete" )]
     public ActionResult ConfirmDelete( string Id )
     {
-      ProductCatergory productCatergoryToDelete = context.Find( Id );
-      if( productCatergoryToDelete == null )
+      ProductCategory productCategoryToDelete = context.Find( Id );
+      if( productCategoryToDelete == null )
       {
         return HttpNotFound();
       } 

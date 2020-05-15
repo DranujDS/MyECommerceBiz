@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyBiz.Core.Models
 {
-  public class ProductCatergory : BaseEntity
+  public class ProductCategory : BaseEntity
   {
     public string Category { get; set; }
   }

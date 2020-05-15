@@ -10,6 +10,6 @@ namespace MyBiz.Core.ViewModels
   public class ProductManagerViewModel
   {
     public Product Product { get; set; }
-    public IEnumerable<ProductCatergory> ProductCategories { get; set; }
+    public IEnumerable<ProductCategory> ProductCategories { get; set; }
   }
 }
