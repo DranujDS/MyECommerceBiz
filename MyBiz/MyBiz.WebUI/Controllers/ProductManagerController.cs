@@ -13,9 +13,9 @@ namespace MyBiz.WebUI.Controllers
   public class ProductManagerController : Controller
   {
     IRepository<Product> context;
-    IRepository<ProductCatergory> productCategories;
+    IRepository<ProductCategory> productCategories;
       
-    public ProductManagerController( IRepository<Product> productContext, IRepository<ProductCatergory> productCategoryContext)
+    public ProductManagerController( IRepository<Product> productContext, IRepository<ProductCategory> productCategoryContext)
     {
       context = productContext;
       productCategories = productCategoryContext;

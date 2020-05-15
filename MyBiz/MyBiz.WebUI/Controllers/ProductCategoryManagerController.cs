@@ -49,7 +49,7 @@ namespace MyBiz.WebUI.Controllers
 
     public ActionResult Edit( string Id )
     {
-      ProductCatergory productCatergory = context.Find( Id );
+      ProductCategory productCatergory = context.Find( Id );
       if( productCatergory == null )
       {
         return HttpNotFound();
