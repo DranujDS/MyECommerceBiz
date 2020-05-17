@@ -96,7 +96,7 @@ namespace MyBiz.Services
     public void RemovefromBasket( HttpContextBase httpContext, string itemId )
     {
       Basket basket = GetBasket( httpContext, true );
-      BasketItem item = basket.BasketItems.FirstOrDefault( i => i.ProductId == itemId );
+      BasketItem item = basket.BasketItems.FirstOrDefault( i => i.Id == itemId );
 
       if( item != null )
       {
@@ -107,7 +107,7 @@ namespace MyBiz.Services
 
     public List<BasketItemViewModel> GetBasketItems(HttpContextBase httpContext)
     {
-      Basket basket = GetBasket( httpContext, false ); 
+      Basket basket = GetBasket( httpContext, false );
 
       if (basket != null)
       {
