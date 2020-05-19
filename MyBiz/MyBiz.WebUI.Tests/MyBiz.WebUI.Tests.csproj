@@ -83,8 +83,11 @@
     <Reference Include="System.Net.Http.WebRequest" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\HomeControllerTests.cs" />
+    <Compile Include="Controllers\BasketControllerTests.cs" />
+    <Compile Include="Mocks\MockContext.cs" />
+    <Compile Include="Mocks\MockHttpContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -93,6 +96,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyBiz.Core\MyBiz.Core.csproj">
+      <Project>{11358C63-621C-48DE-A76F-426D097B6908}</Project>
+      <Name>MyBiz.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyBiz.Services\MyBiz.Services.csproj">
+      <Project>{CCDC4D37-1D74-4E7F-A17A-9E804B321EC7}</Project>
+      <Name>MyBiz.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyBiz.WebUI\MyBiz.WebUI.csproj">
       <Project>{E08AE2CF-1AF4-447E-B86B-32236C0344AD}</Project>
       <Name>MyBiz.WebUI</Name>
