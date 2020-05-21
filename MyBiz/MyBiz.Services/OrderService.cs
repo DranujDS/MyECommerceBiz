@@ -23,6 +23,7 @@ namespace MyBiz.Services
       {
         baseOrder.OrderItems.Add( new OrderItem() {
           ProductId = item.Id,
+          ProductName = item.ProductName,
           Image = item.Image,
           Price = item.Price,
           Quantity = item.Quantity
@@ -30,6 +31,22 @@ namespace MyBiz.Services
       }
 
       orderContext.Insert( baseOrder );
+      orderContext.Commit();
+    }
+
+    public List<Order> GetOrderList()
+    {
+      return orderContext.Collection().ToList();
+    }
+
+    public Order GetOrder(string id)
+    {
+      return orderContext.Find( id );
+    }
+
+    public void UpdateOrder(Order updateOrder)
+    {
+      orderContext.Update( updateOrder );
       orderContext.Commit();
     }
   }
